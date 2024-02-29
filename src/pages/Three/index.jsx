@@ -45,7 +45,7 @@ export default function ThreePage() {
           setsecondcurrencypercent(res.data.coins[1].item.data.price_change_percentage_24h.usd)
           setthirdcurrencypercent(res.data.coins[2].item.data.price_change_percentage_24h.usd)
 
-          console.log('res', res.data.coins)
+          console.log('trendingCurrencies', trendingCurrencies)
         }).catch((err) => {
           console.log("there is an error", err)
         })
@@ -205,7 +205,8 @@ export default function ThreePage() {
                     <div className="flex flex-row justify-between items-center w-full">
                       <div className="flex flex-row justify-start items-center gap-1.5">
                         {/* <Button color="indigo_400" size="xs" shape="circle" className="w-6"> */}
-                        {/* <Img src={trendingCurrencies[0].item.small} /> */}
+                        {trendingCurrencies.length && <Img src={trendingCurrencies[0].item.small} alt="image160_one" className="w-6 h-6 rounded-full object-cover" />}
+                        
                         {/* </Button> */}
                         <Text as="p" className="!text-gray-900 !font-medium">
                           {topcurrency}
@@ -223,7 +224,8 @@ export default function ThreePage() {
                     </div>
                     <div className="flex flex-row justify-between items-center w-full">
                       <div className="flex flex-row justify-start items-center gap-1.5">
-                        {/* <Img src={trendingCurrencies[1].item.small} alt="image160_one" className="w-6 object-cover" /> */}
+                        {trendingCurrencies.length && <Img src={trendingCurrencies[1].item.small} alt="image160_one" className="w-6 h-6 rounded-full object-cover" />}
+                        
                         <Text as="p" className="!text-gray-900 !font-medium">
                           {secondcurrency}
                         </Text>
@@ -240,7 +242,8 @@ export default function ThreePage() {
                     </div>
                     <div className="flex flex-row justify-between items-center w-full">
                       <div className="flex flex-row justify-start items-center w-[42%] gap-1.5">
-                        {/* <Img src={trendingCurrencies[2].item.small} alt="image163_one" className="h-6 w-6 rounded-[50%]" /> */}
+                        {trendingCurrencies.length && <Img src={trendingCurrencies[2].item.small} alt="image163_one" className="h-6 w-6 rounded-full" />}
+                        
                         <Text as="p" className="!text-gray-900 !font-medium">
                           {thirdcurrency}
                         </Text>
@@ -269,7 +272,7 @@ export default function ThreePage() {
                   </div>
                   <div className="flex flex-row justify-center w-full">
                     <div className="flex flex-row justify-center items-center w-full">
-                      <Img src="images/img_button_previous.svg" alt="bnb_one" className="h-11 z-[1] opacity-0.35" />
+                      <Img src="images/img_button_previous.svg" alt="bnb_one" className="h-11 w-11 rounded-full z-[1] opacity-0.35" />
 
                       <div className="flex flex-row justify-center w-[99%] ml-[-8px]">
                         <div className="flex flex-row justify-center items-center w-full">
@@ -287,7 +290,7 @@ export default function ThreePage() {
                                               <Img
                                                 src={currency.item.small}
                                                 alt="you_may_also"
-                                                className="w-[30%] object-cover"
+                                                className="w-[30%] aspect-square rounded-full object-cover"
                                               />
                                               <div className="flex flex-row justify-start w-1/2">
                                                 <Text as="p" className="!text-gray-900_01">
@@ -358,7 +361,7 @@ export default function ThreePage() {
                                               <Img
                                                 src={currency.item.small}
                                                 alt="you_may_also"
-                                                className="w-[30%] object-cover"
+                                                className="w-[30%] aspect-square rounded-full object-cover"
                                               />
                                               <div className="flex flex-row justify-start w-1/2">
                                                 <Text as="p" className="!text-gray-900_01">
